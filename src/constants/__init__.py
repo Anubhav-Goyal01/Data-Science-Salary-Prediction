@@ -39,10 +39,31 @@ DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY = "report_page_file_name"
 
 
 # Data transformation related constants
-DATA_TRANSFORMATION_ARTIFACT_DIR_NAME = "data_transformation"
+DATA_TRANSFORMATION_ARTIFACT_DIR = "data_transformation"
 DATA_TRANSFORMATION_CONFIG_KEY = "data_transformation_config"
 DATA_TRANSFORMATION_DIR_NAME_KEY = "transformed_dir"
 DATA_TRANSFORMATION_TRAIN_DIR_NAME_KEY = "transformed_train_dir"
 DATA_TRANSFORMATION_TEST_DIR_NAME_KEY = "transformed_test_dir"
 DATA_TRANSFORMATION_PREPROCESSED_DIR_KEY = "preprocessing_dir"
 DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY = "preprocessed_object_file_name"
+
+
+# Model training related constants
+MODEL_TRAINER_ARTIFACT_DIR = "model_trainer"
+MODEL_TRAINER_CONFIG_KEY = "model_trainer_config"
+MODEL_TRAINER_TRAINED_MODEL_DIR_KEY = "trained_model_dir"
+MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY = "model_file_name"
+MODEL_TRAINER_BASE_ACCURACY_KEY = "base_accuracy"
+MODEL_TRAINER_MODEL_CONFIG_DIR_KEY = "model_config_dir"
+MODEL_TRAINER_MODEL_CONFIG_FILE_NAME_KEY = "model_config_file_name"
+
+
+# Model evaluation related constants
+MODEL_EVALUATION_ARTIFACT_DIR = "model_evaluation"
+MODEL_EVALUATION_CONFIG_KEY = "model_evaluation_config"
+MODEL_EVALUATION_FILE_NAME_KEY = "model_evaluation_file_name"
+
+
+# Model Pusher related constants
+MODEL_PUSHER_CONFIG_KEY = "model_pusher_config"
+MODEL_PUSHER_MODEL_EXPORT_DIR_KEY = "model_export_dir"
