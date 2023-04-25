@@ -1,0 +1,18 @@
+columns:
+  -
+
+
+numerical_columns:
+  -
+
+
+categorical_columns:
+  -
+
+
+target_columns:
+  -
+
+
+domain_value:
+  -
