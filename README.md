@@ -1,1 +1,1 @@
-# Data-Science-Salary-Prediction
+# Supermarket Sales Prediction
