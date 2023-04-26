@@ -25,11 +25,6 @@ class DataIngestion:
             logging.info(f"Reading CSV file: {data_file_path}")
             data = pd.read_csv(data_file_path)
 
-            data["Total_cat"] = pd.cut(
-                data["Total"],
-                bins=[0, 200, 400, 600, 800, np.inf],
-                labels=[1,2,3,4,5]
-            )
 
             logging.info("Splitting data into train and test")
             strat_train_set = None
@@ -37,9 +32,9 @@ class DataIngestion:
 
             split = StratifiedShuffleSplit(n_splits= 1, test_size= 0.2, random_state=42)
 
-            for train_idx, test_idx in split.split(data, data['job_title']):
-                strat_train_set = data.loc[train_idx].drop(['Total_cat'], axis = 1)
-                strat_test_set = data.loc[test_idx].drop(["Total_cat"], axis = 1)
+            for train_idx, test_idx in split.split(data, data['brand']):
+                strat_train_set = data.loc[train_idx]
+                strat_test_set = data.loc[test_idx]
 
             train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir, data_file_name)
             test_file_path = os.path.join(self.data_ingestion_config.ingested_test_dir, data_file_name)
@@ -63,7 +58,6 @@ class DataIngestion:
             )
             logging.info(f"Data Ingestion artifact:[{data_ingestion_artifact}]")
             return data_ingestion_artifact
-
 
         except Exception as e:
             raise CustomException(e, sys)

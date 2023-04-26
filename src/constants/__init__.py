@@ -3,7 +3,7 @@ from datetime import datetime
 
 ROOT_DIR = os.getcwd()
 DATA_DIR = "Data"
-DATA_FILE_NAME = "supermarket_sales.csv"
+DATA_FILE_NAME = "laptopPrice.csv"
 
 CONFIG_DIR = "config"
 CONFIG_FILE_NAME = "config.yaml"

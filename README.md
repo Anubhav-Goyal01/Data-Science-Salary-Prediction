@@ -1,1 +1,1 @@
-# Supermarket Sales Prediction
+# Laptop Price Prediction
