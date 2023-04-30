@@ -1,18 +1,51 @@
 columns:
-  -
+  - brand
+  - processor_brand
+  - processor_name
+  - processor_gnrtn
+  - ram_gb
+  - ram_type
+  - ram_type
+  - ssd
+  - hdd
+  - os
+  - os_bit
+  - graphic_card_gb
+  - weight
+  - warranty
+  - Touchscreen
+  - msoffice
+  - rating
+  - Price
+  - Number of Ratings
+  - Number of Reviews
 
 
 numerical_columns:
-  -
+  - Price
+  - Number of Ratings
+  - Number of Reviews
 
 
 categorical_columns:
-  -
+  - brand
+  - processor_brand
+  - processor_name
+  - processor_gnrtn
+  - ram_gb
+  - ram_type
+  - ram_type
+  - ssd
+  - hdd
+  - os
+  - os_bit
+  - graphic_card_gb
+  - weight
+  - warranty
+  - Touchscreen
+  - msoffice
+  - rating
 
 
-target_columns:
-  -
-
-
-domain_value:
-  -
+target_column:
+  - Price
