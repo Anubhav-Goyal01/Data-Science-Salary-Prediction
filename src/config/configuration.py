@@ -100,19 +100,7 @@ class Configuration:
                 data_validation_info[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
             )
 
-
-            report_file_path = os.path.join(
-                data_validation_artifact_dir,
-                data_validation_info[DATA_VALIDATION_REPORT_FILE_NAME_KEY]
-            )
-
-
-            report_page_file_path = os.path.join(
-                data_validation_artifact_dir,
-                data_validation_info[DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY]
-            )
-
-            data_validation_config = DataValidationConfig(schema_file_path= schema_file_path, report_file_path= report_file_path, report_page_file_path= report_page_file_path)
+            data_validation_config = DataValidationConfig(schema_file_path= schema_file_path)
             
             logging.info(f"Data Validation config: {data_validation_config}")
             return data_validation_config
