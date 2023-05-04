@@ -6,4 +6,7 @@ seaborn
 scikit-learn
 PyYAML
 evidently
+xgboost
+catboost
+lightgbm
 # -e.
