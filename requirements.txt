@@ -8,5 +8,6 @@ PyYAML
 evidently
 xgboost
 catboost
+dill
 lightgbm
 # -e.

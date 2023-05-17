@@ -65,3 +65,10 @@ MODEL_EVALUATION_FILE_NAME_KEY = "model_evaluation_file_name"
 # Model Pusher related constants
 MODEL_PUSHER_CONFIG_KEY = "model_pusher_config"
 MODEL_PUSHER_MODEL_EXPORT_DIR_KEY = "model_export_dir"
+
+
+
+DATASET_SCHEMA_COLUMNS_KEY = "columns"
+NUMERICAL_COLUMN_KEY = "numerical_columns"
+CATEGORICAL_COLUMN_KEY = "categorical_columns"
+TARGET_COLUMN_KEY = "target_column"
