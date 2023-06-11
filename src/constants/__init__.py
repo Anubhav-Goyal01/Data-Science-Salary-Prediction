@@ -72,3 +72,12 @@ DATASET_SCHEMA_COLUMNS_KEY = "columns"
 NUMERICAL_COLUMN_KEY = "numerical_columns"
 CATEGORICAL_COLUMN_KEY = "categorical_columns"
 TARGET_COLUMN_KEY = "target_column"
+
+
+
+GRID_SEARCH_KEY = 'grid_search'
+MODULE_KEY = 'module'
+CLASS_KEY = 'class'
+PARAM_KEY = 'params'
+MODEL_SELECTION_KEY = 'model_selection'
+SEARCH_PARAM_GRID_KEY = "search_param_grid"

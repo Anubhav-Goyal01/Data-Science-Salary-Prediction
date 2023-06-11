@@ -21,7 +21,6 @@ columns:
 
 
 numerical_columns:
-  - Price
   - Number of Ratings
   - Number of Reviews
 

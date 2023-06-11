@@ -62,19 +62,18 @@ def save_object(file_path: str, obj):
 
 def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
     try:
-        dataset_schema = read_yaml_file(file_path)
+        dataset_schema = read_yaml_file(schema_file_path)
         schema = dataset_schema[DATASET_SCHEMA_COLUMNS_KEY]
 
         df = pd.read_csv(file_path)
 
         for column in df.columns:
-            if column in list(schema.keys()):
-                df[column] = df[column].astype(schema[column])
+            if column in schema:
+                pass
             else:
                 error_messgae = f"{error_messgae} \nColumn: [{column}] is not in the schema."
+                raise Exception(error_messgae)
 
-        if len(error_messgae) > 0:
-            raise Exception(error_messgae)
         return df
     
     except Exception as e:
