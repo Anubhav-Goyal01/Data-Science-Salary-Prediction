@@ -1,0 +1,264 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">
+</head>
+
+<body>
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1>
+                <legend>Laptop Price Prediction</legend>
+            </h1>
+            <div class="grid">
+                <div>
+                    <label class="form-label">Brand</label>
+                    <select class="form-control" name="brand" required>
+                        <option class="placeholder" selected disabled value="">Select laptop's brand</option>
+                        <option value="ASUS">
+                            Asus
+                        </option>
+                        <option value="Lenovo">
+                            Lenovo
+                        </option>
+                        <option value="acer">
+                            Acer
+                        </option>
+                        <option value="Avita">
+                            Avita
+                        </option>
+                        <option value="HP">
+                            HP
+                        </option>
+                        <option value="DELL">
+                            Dell
+                        </option>
+                        <option value="MSI">
+                            MSI
+                        </option>
+                        <option value="APPLE">
+                            Apple
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Processor's Brand</label>
+                    <select class="form-control" name="processors_brand" required>
+                        <option class="placeholder" selected disabled value="">Select processor's brand</option>
+                        <option value="Intel">
+                            Intel
+                        </option>
+                        <option value="AMD">
+                            AMD
+                        </option>
+                        <option value="M1">
+                            M1
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Processor's Name</label>
+                    <select class="form-control" name="processor_name" required>
+                        <option class="placeholder" selected disabled value="">Select processors name</option>
+                        <option value="Core i3">
+                            Core i3
+                        </option>
+                        <option value="Core i5">
+                            Core i5
+                        </option>
+                        <option value="Celeron Dual">
+                            Celeron Dual
+                        </option>
+                        <option value="Core i7">
+                            Core i7
+                        </option>
+                        <option value="Core i9">
+                            M1
+                        </option>
+                        <option value="Pentium Quad">
+                            Pentium Quad
+                        </option>
+                        <option value="Ryzen 3">
+                            Ryzen 3
+                        </option>
+                        <option value="Ryzen 5">
+                            Ryzen 5
+                        </option>
+                        <option value="Ryzen 7">
+                            Ryzen 7
+                        </option>
+                        <option value="Ryzen 9">
+                            Ryzen 9
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Processor Generation</label>
+                    <select class="form-control" name="processor_gnrtn" required>
+                        <option class="placeholder" selected disabled value="">Select processor's generation</option>
+                        <option value="4th">4th</option>
+                        <option value="7th">7th</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                        <option value="11th">11th</option>
+                        <option value="12th">12th</option>
+                        <option value="Not Available">Not Available</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">RAM (GB)</label>
+                    <select class="form-control" name="ram_gb" required>
+                        <option class="placeholder" selected disabled value="">Select RAM capacity</option>
+                        <option value="4 GB">4 GB</option>
+                        <option value="8 GB">8 GB</option>
+                        <option value="16 GB">16 GB</option>
+                        <option value="32 GB">32 GB</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">RAM Type</label>
+                    <select class="form-control" name="ram_type" required>
+                        <option class="placeholder" selected disabled value="">Select RAM type</option>
+                        <option value="DDR4">DDR4</option>
+                        <option value="LPDDR4">LPDDR4</option>
+                        <option value="LPDDR4X">LPDDR4X</option>
+                        <option value="DDR5">DDR5</option>
+                        <option value="DDR3">DDR3</option>
+                        <option value="LPDDR3">LPDDR3</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">SSD Capacity</label>
+                    <select class="form-control" name="ssd" required>
+                        <option class="placeholder" selected disabled value="">Select SSD capacity</option>
+                        <option value="0 GB">0 GB</option>
+                        <option value="512 GB">512 GB</option>
+                        <option value="256 GB">256 GB</option>
+                        <option value="128 GB">128 GB</option>
+                        <option value="1024 GB">1024 GB</option>
+                        <option value="2048 GB">2048 GB</option>
+                        <option value="3072 GB">3072 GB</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">HDD Capacity</label>
+                    <select class="form-control" name="hdd" required>
+                        <option class="placeholder" selected disabled value="">Select HDD capacity</option>
+                        <option value="1024 GB">1024 GB</option>
+                        <option value="0 GB">0 GB</option>
+                        <option value="512 GB">512 GB</option>
+                        <option value="2048 GB">2048 GB</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Operating System</label>
+                    <select class="form-control" name="os" required>
+                        <option class="placeholder" selected disabled value="">Select operating system</option>
+                        <option value="Windows">Windows</option>
+                        <option value="DOS">DOS</option>
+                        <option value="Mac">Mac</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Operating System Bit</label>
+                    <select class="form-control" name="os_bit" required>
+                        <option class="placeholder" selected disabled value="">Select operating system bit</option>
+                        <option value="64-bit">64-bit</option>
+                        <option value="32-bit">32-bit</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Graphic Card RAM (GB)</label>
+                    <select class="form-control" name="graphic_card_gb" required>
+                        <option class="placeholder" selected disabled value="">Select graphic card RAM</option>
+                        <option value="0 GB">0 GB</option>
+                        <option value="2 GB">2 GB</option>
+                        <option value="4 GB">4 GB</option>
+                        <option value="6 GB">6 GB</option>
+                        <option value="8 GB">8 GB</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Weight</label>
+                    <select class="form-control" name="weight" required>
+                        <option class="placeholder" selected disabled value="">Select weight category</option>
+                        <option value="Casual">Casual</option>
+                        <option value="ThinNlight">ThinNlight</option>
+                        <option value="Gaming">Gaming</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Warranty</label>
+                    <select class="form-control" name="warranty" required>
+                        <option class="placeholder" selected disabled value="">Select warranty</option>
+                        <option value="No warranty">No warranty</option>
+                        <option value="1 year">1 year</option>
+                        <option value="2 years">2 years</option>
+                        <option value="3 years">3 years</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Touchscreen</label>
+                    <select class="form-control" name="touchscreen" required>
+                        <option class="placeholder" selected disabled value="">Select touchscreen availability</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="form-label">Microsoft Office</label>
+                    <select class="form-control" name="msoffice" required>
+                        <option class="placeholder" selected disabled value="">Select Microsoft Office availability</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Rating</label>
+                    <select class="form-control" name="rating" required>
+                        <option class="placeholder" selected disabled value="">Select rating</option>
+                        <option value="1 star">1 star</option>
+                        <option value="2 stars">2 stars</option>
+                        <option value="3 stars">3 stars</option>
+                        <option value="4 stars">4 stars</option>
+                        <option value="5 stars">5 stars</option>
+                    </select>
+                </div>
+                                   
+                
+                <div>
+                    <label class="form-label">Number of Ratings</label>
+                    <input class="form-control" type="number" name="n_ratings" placeholder="100" min='0'/>
+                </div>
+                <div>
+                    <label class="form-label">Number of Reviews</label>
+                    <input class="form-control" type="number" name="n_reviews" placeholder="34" min='0'/>
+                </div>
+            </div>
+            <div class="btn-container">
+                <input class="btn btn-primary" type="submit" value="Predict Laptop Price" required />
+            </div>
+        </form>
+        <div class="results-container">
+            <h2 class="results">
+                {{results}}
+            </h2>
+        </div>
+    </div>
+
+    <body>
+
+</html>
