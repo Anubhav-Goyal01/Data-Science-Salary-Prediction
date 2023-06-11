@@ -48,7 +48,6 @@ class DataTransformation:
             num_cols = dataset_schema[NUMERICAL_COLUMN_KEY]
             cat_cols = dataset_schema[CATEGORICAL_COLUMN_KEY]
 
-
             num_pipeline= Pipeline(
                 steps=[
                 ("imputer",SimpleImputer(strategy="median")),
@@ -59,7 +58,7 @@ class DataTransformation:
             cat_pipeline=Pipeline(
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
-                ("one_hot_encoder",OneHotEncoder()),
+                ("one_hot_encoder",OneHotEncoder(handle_unknown='ignore')),
                 ("scaler",StandardScaler(with_mean=False))
                 ]
             )
@@ -67,7 +66,7 @@ class DataTransformation:
             preprocessor = ColumnTransformer([
             ("log_transform", LogScaling(), num_cols),
             ("num_pipeline", num_pipeline, num_cols),
-            ("cat_pipelines",cat_pipeline,cat_cols)
+            ("cat_pipeline",cat_pipeline,cat_cols)
             ], remainder= 'passthrough')
 
             return preprocessor
@@ -99,20 +98,18 @@ class DataTransformation:
 
 
             logging.info(f"Splitting input and target feature from training and testing dataframe.")
-            input_feature_train_df = train_df.drop(columns=[target_column_name],axis=1)
-            target_feature_train_df = train_df[target_column_name]
+            X_train = train_df.drop(target_column_name,axis=1)
+            y_train = train_df[target_column_name]
 
-            input_feature_test_df = test_df.drop(columns=[target_column_name],axis=1)
-            target_feature_test_df = test_df[target_column_name]
+            X_test = test_df.drop(target_column_name,axis=1)
+            y_test = test_df[target_column_name]
             
-
             logging.info(f"Applying preprocessing object on training dataframe and testing dataframe")
-            input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
-            input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
+            X_train_arr = preprocessing_obj.fit_transform(X_train).toarray()
+            X_test_arr = preprocessing_obj.transform(X_test).toarray()
 
-
-            train_arr = np.c_[ input_feature_train_arr, np.array(target_feature_train_df)]
-            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
+            train_arr = np.c_[X_train_arr, np.array(y_train)]
+            test_arr = np.c_[X_test_arr, np.array(y_test)]
             
             transformed_train_dir = self.data_transformation_config.transformed_train_dir
             transformed_test_dir = self.data_transformation_config.transformed_test_dir
