@@ -32,7 +32,6 @@ categorical_columns:
   - processor_gnrtn
   - ram_gb
   - ram_type
-  - ram_type
   - ssd
   - hdd
   - os

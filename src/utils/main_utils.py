@@ -3,7 +3,7 @@ import sys, os
 from src.exception import CustomException
 import numpy as np
 import pandas as pd
-import dill
+import pickle
 from src.constants import *
 
 def read_yaml_file(file_path: str) -> dict:
@@ -44,7 +44,7 @@ def load_object(file_path:str):
         if not os.path.exists(file_path):
             raise Exception(f"The file: {file_path} does not exist")
         with open(file_path, "rb") as f:
-            dill.load(f)
+            return pickle.load(f)
 
     except Exception as e:
         raise CustomException(e, sys)
@@ -55,7 +55,7 @@ def save_object(file_path: str, obj):
         dir_path = os.path.dirname(file_path)
         os.makedirs(dir_path, exist_ok= True)
         with open(file_path, "wb") as f:
-            dill.dump(obj, f)
+            pickle.dump(obj, f)
     except Exception as e:
         raise CustomException(e, sys)
     
